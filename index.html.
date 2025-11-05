@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Darpan Wears</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .product-card {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .category-btn {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .admin-btn {
+            font-size: 1.1rem;
+            margin-left: 0.7rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Header & Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-3 sticky-top">
+        <div class="container-fluid">
+            <span class="navbar-brand fw-bold" style="font-size: 1.6rem;">The Darpan Wears</span>
+            <a href="https://www.instagram.com/darpan_wears?igsh=a2pkYXhpajVwNnR3" target="_blank" class="mx-2">
+                <i class="bi bi-instagram" style="font-size:1.7rem;color:#E1306C;"></i>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item"><a class="nav-link category-link active" data-cat="All" href="#">All</a></li>
+                    <li class="nav-item"><a class="nav-link category-link" data-cat="Shirts" href="#">Shirts</a></li>
+                    <li class="nav-item"><a class="nav-link category-link" data-cat="T-Shirts" href="#">T-Shirts</a></li>
+                    <li class="nav-item"><a class="nav-link category-link" data-cat="Jeans" href="#">Jeans</a></li>
+                    <li class="nav-item"><a class="nav-link category-link" data-cat="Shoes" href="#">Shoes</a></li>
+                    <li class="nav-item"><a class="nav-link category-link" data-cat="Electronic Devices" href="#">Electronic Devices</a></li>
+                </ul>
+                <form class="d-flex" id="search-form" autocomplete="off">
+                    <input
+                        class="form-control me-2"
+                        id="search-input"
+                        type="search"
+                        placeholder="Search products..."
+                        aria-label="Search"
+                    />
+                </form>
+                <span class="admin-btn text-secondary" id="show-admin">
+                    <i class="bi bi-person-lock"></i>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Buttons (Mobile) -->
+    <div class="container mb-2 d-lg-none">
+        <div id="mobile-category" class="d-flex flex-wrap"></div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="container" id="product-list">
+        <div class="row" id="products-row"></div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Order Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="orderForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Order Product</h5>
+                        <button type="button" class="btn-close" data
